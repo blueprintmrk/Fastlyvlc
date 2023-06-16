@@ -10,3 +10,29 @@ name = "Add a new field to a JSON response"
 [setup.backends.origin_0]
 address = "http-me.glitch.me"
 port = 443
+[setup]
+
+  [setup.backends]
+
+    [setup.backends.httpbin]
+      address = "httpbin.org"
+      description = "A simple HTTP Request & Response Service."
+      port = 443
+
+    [setup.backends.httpme]
+      address = "http-me.glitch.me"
+      description = "HTTP me is a tiny express app initally designed to replicate the features of HTTPBin.org"
+      port = 443
+
+  [setup.config_stores]
+
+    [setup.config_stores.service_config]
+      description = "Configuration data for my service"
+
+      [setup.config_stores.service_config.items]
+
+        [setup.config_stores.service_config.items.s3-primary-host]
+          value = "eu-west-2"
+
+        [setup.config_stores.service_config.items.s3-fallback-host]
+          value = "us-west-1"
